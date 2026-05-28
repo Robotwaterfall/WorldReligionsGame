@@ -53,18 +53,18 @@ public class RenderSystem extends SortedIteratingSystem implements Disposable {
         AnimatedTiledMapTile.updateAnimationBaseTime();
         viewport.apply();
 
+        this.tiledRenderer.setView(camera);
+        this.tiledRenderer.render();
+
         batch.begin();
         batch.setColor(Color.WHITE);
-        this.tiledRenderer.setView(camera);
-        bgdLayers.forEach(tiledRenderer::renderMapLayer);
 
         forceSort();
         super.update(deltaTime);
 
-        batch.setColor(Color.WHITE);
-        fgdLayers.forEach(tiledRenderer::renderMapLayer);
         batch.end();
     }
+
 
     /**
      * Renders a single entity with its transform and graphic components.
