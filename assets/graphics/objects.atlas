@@ -139,7 +139,7 @@ player/attack_up
   index: 3
 player/idle_down
   rotate: false
-  xy: 266, 149
+  xy: 302, 185
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
@@ -510,7 +510,7 @@ training_dummy/damaged_down
   index: 4
 training_dummy/idle_down
   rotate: false
-  xy: 302, 185
+  xy: 266, 149
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
