@@ -1,5 +1,7 @@
 package io.github.com.quillraven.tiled;
 
+import java.lang.reflect.Array;
+
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.Color;
@@ -24,7 +26,7 @@ import com.badlogic.gdx.utils.GdxRuntimeException;
 import io.github.com.quillraven.GdxGame;
 import io.github.com.quillraven.asset.AssetService;
 import io.github.com.quillraven.asset.AtlasAsset;
-import io.github.com.quillraven.asset.SoundAsset;
+import io.github.com.quillraven.asset.SoundAsset;      
 import io.github.com.quillraven.component.Animation2D;
 import io.github.com.quillraven.component.Animation2D.AnimationType;
 import io.github.com.quillraven.component.Attack;
@@ -34,8 +36,10 @@ import io.github.com.quillraven.component.Facing;
 import io.github.com.quillraven.component.Facing.FacingDirection;
 import io.github.com.quillraven.component.Fsm;
 import io.github.com.quillraven.component.Graphic;
+import io.github.com.quillraven.component.Interaction;
 import io.github.com.quillraven.component.Life;
 import io.github.com.quillraven.component.Move;
+import io.github.com.quillraven.component.Npc;
 import io.github.com.quillraven.component.Physic;
 import io.github.com.quillraven.component.Player;
 import io.github.com.quillraven.component.Tiled;
@@ -121,13 +125,59 @@ public class TiledAshleyConfigurator {
         addEntityLife(tile, entity);
         addEntityPlayer(tileMapObject, entity);
         addEntityAttack(tile, entity);
-        entity.add(new Facing(FacingDirection.DOWN));
-        entity.add(new Fsm(entity));
+        addEntityAttack(tile, entity);
+        addEntityNpc(tileMapObject, tile, entity);
+
+        if (Animation2D.MAPPER.get(entity) != null) {
+            entity.add(new Facing(FacingDirection.DOWN));
+            entity.add(new Fsm(entity));
+        }
+
         entity.add(new Graphic(textureRegion, Color.WHITE.cpy()));
         entity.add(new Tiled(tileMapObject));
 
         this.engine.addEntity(entity);
+
     }
+
+    private void addEntityNpc(TiledMapTileMapObject tileMapObject, TiledMapTile tile, Entity entity) {
+        String objectType = tileMapObject.getProperties().get("type", "", String.class);
+        String tileType = tile.getProperties().get("type", "", String.class);
+
+        if (!"Npc".equals(objectType) && !"Npc".equals(tileType)) {
+            return;
+        }
+
+        String name = tileMapObject.getProperties().get("name", tileMapObject.getName(), String.class);
+        if (name == null || name.isBlank()) {
+            name = "NPC";
+        }
+
+        float talkRange = tileMapObject.getProperties().get("talkRange", 1.2f, Float.class);
+
+        String[] dialogue = new String[10];
+        int count = 0;
+
+        for (int i = 1; i <= 10; i++) {
+            String line = tileMapObject.getProperties().get("dialogue" + i, null, String.class);
+                if (line != null && !line.isBlank()) {
+                    dialogue[count++] = line;
+                }
+        }
+
+        if (count == 0) {
+            dialogue = new String[] { "..." };
+        } else if (count != dialogue.length) {
+            String[] cleaned = new String[count];
+            System.arraycopy(dialogue, 0, cleaned, 0, count);
+            dialogue = cleaned;
+        }
+
+        entity.add(new Npc(name, dialogue));
+
+        entity.add(new Interaction(talkRange));
+    }
+
 
     private BodyType getObjectBodyType(TiledMapTile tile) {
         String classType = tile.getProperties().get("type", "", String.class);

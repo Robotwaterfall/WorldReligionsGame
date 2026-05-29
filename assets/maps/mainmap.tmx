@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="18" height="16" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="18">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="18" height="16" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="28">
  <properties>
   <property name="music" value="TOWN"/>
  </properties>
  <tileset firstgid="1" source="objects.tsx"/>
- <tileset firstgid="9" source="tileset.tsx"/>
+ <tileset firstgid="10" source="tileset.tsx"/>
  <layer id="1" name="ground" width="18" height="16">
   <data encoding="base64" compression="zlib">
-   eJylkjsOwjAQRN3z6SI+HVBDzwGIa6BGqYEa+tAHLpCz+GxMJK80Wm2MgeJJibUz6511cM6twdJgA8IXTIyzEhTxew8OiqOh2YKBcV5EjwdoiSeoYs3O0PB/N+sKnKL2Bi7E1ejbeS5iHp48AvlUhi4Xnol9fKZWshSPBtQ92Qp6DzpTpjbqBenH9ZLpPeHJu2vVDngXnjK2emhSWYnPi3x+2ds5zsZ3sN5Nrhdryw/1+n3/yxCMFOOe2tTdpmCmmGf0fwNwWqII
+   eJylkjsOwjAQRH0APl3EpwNq6DkAcQ3UKDVQQx/6wAVyFl+NieSVRquNMVA8KbF2Zr2zDs65NVgabED4golxVoIifu/BQXE0NFswMM6L6PEALfEEVazZGRr+72ZdgVPU3sCFuBp9O89FzMOTRyCfytDlwjOxj8/USpbi0YC6J1tB70FnytRGvSD9uF4yvSc8eXet2gHvwlPGVg9NKivxeZHPL3s7x9n4Dta7yfVibfmhXr/vfxmCkWLcU5u62xTMFPOM/m/6uKMo
   </data>
  </layer>
  <layer id="3" name="water" width="18" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjALKgScQC0LZHkTqAQAhxACj
+   eJxjYBgFo2AUjALKgRcQC0HZnkTqAQAiUACm
   </data>
  </layer>
  <objectgroup id="6" name="trigger">
@@ -37,5 +37,15 @@
   <object id="14" gid="6" x="176" y="123" width="41" height="63"/>
   <object id="15" gid="7" x="96" y="128" width="16" height="16"/>
   <object id="17" gid="8" x="149" y="132" width="32" height="32"/>
+  <object id="26" name="Npc" gid="2" x="0.872389" y="113.452" width="32" height="32" opacity="0.95" visible="0">
+   <properties>
+    <property name="dialogue1" value="Welcome, i dont know who you are?"/>
+    <property name="dialogue2" value="Anyways go check the stuff out!"/>
+    <property name="dialogue3" value="Press E to Contine!"/>
+    <property name="name" value="TestNpc"/>
+    <property name="talkRange" type="float" value="1.2"/>
+    <property name="type" value="Npc"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

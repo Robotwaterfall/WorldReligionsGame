@@ -2,6 +2,7 @@ package io.github.com.quillraven.screen;
 
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.EntitySystem;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -26,6 +27,7 @@ import io.github.com.quillraven.system.DamagedSystem;
 import io.github.com.quillraven.system.FacingSystem;
 import io.github.com.quillraven.system.FsmSystem;
 import io.github.com.quillraven.system.LifeSystem;
+import io.github.com.quillraven.system.NpcInteractionSystem;
 import io.github.com.quillraven.system.PhysicDebugRenderSystem;
 import io.github.com.quillraven.system.PhysicMoveSystem;
 import io.github.com.quillraven.system.PhysicSystem;
@@ -33,6 +35,7 @@ import io.github.com.quillraven.system.RenderSystem;
 import io.github.com.quillraven.system.TriggerSystem;
 import io.github.com.quillraven.tiled.TiledAshleyConfigurator;
 import io.github.com.quillraven.tiled.TiledService;
+import io.github.com.quillraven.ui.NpcDialogueUI;
 import io.github.com.quillraven.ui.model.GameViewModel;
 import io.github.com.quillraven.ui.view.GameView;
 
@@ -50,6 +53,7 @@ public class GameScreen extends ScreenAdapter {
     private final World physicWorld;
     private final KeyboardController keyboardController;
     private final AudioService audioService;
+    private final NpcDialogueUI npcDialogueUI;
 
     public GameScreen(GdxGame game) {
         this.game = game;
@@ -64,6 +68,7 @@ public class GameScreen extends ScreenAdapter {
         this.engine = new Engine();
         this.tiledAshleyConfigurator = new TiledAshleyConfigurator(this.engine, this.physicWorld, this.game.getAssetService());
         this.keyboardController = new KeyboardController(GameControllerState.class, engine, null);
+        this.npcDialogueUI = new NpcDialogueUI(stage, skin);
 
         // add ECS systems
         this.engine.addSystem(new PhysicMoveSystem());
@@ -83,6 +88,7 @@ public class GameScreen extends ScreenAdapter {
         this.engine.addSystem(new RenderSystem(game.getBatch(), game.getViewport(), game.getCamera()));
         this.engine.addSystem(new PhysicDebugRenderSystem(this.physicWorld, game.getCamera()));
         this.engine.addSystem(new ControllerSystem(game));
+        this.engine.addSystem(new NpcInteractionSystem());
     }
 
     @Override
@@ -120,6 +126,7 @@ public class GameScreen extends ScreenAdapter {
     public void render(float delta) {
         delta = Math.min(1 / 30f, delta);
         engine.update(delta);
+        npcDialogueUI.update(engine.getSystem(NpcInteractionSystem.class));
 
         uiViewport.apply();
         stage.getBatch().setColor(Color.WHITE);
