@@ -1,11 +1,9 @@
-# Mystic Tutorial
+# World Religions RPG
 
 ![LibGDX](https://img.shields.io/badge/LibGDX-1.13.5-green)
 ![Ashley](https://img.shields.io/badge/Ashley-1.7.4-blue)
 ![Tiled](https://img.shields.io/badge/Tiled-1.11-red)
 
-This is the source code for the LibGDX Java [tutorial](https://www.youtube.com/playlist?list=PLTKHCDn5RKK8us8DL7OGqgp4rQQByiX0C) series on my
-[YouTube](https://www.youtube.com/Quillraven) channel.
 
 The game itself contains:
 - main menu using Scene2D
