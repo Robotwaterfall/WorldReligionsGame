@@ -1,53 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="18" height="16" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="29">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="18" height="16" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="47">
  <properties>
   <property name="music" value="TOWN"/>
  </properties>
  <tileset firstgid="1" source="objects.tsx"/>
- <tileset firstgid="10" source="tileset.tsx"/>
+ <tileset firstgid="11" source="tileset.tsx"/>
  <layer id="1" name="ground" width="18" height="16">
   <data encoding="base64" compression="zlib">
-   eJylkjsOwjAQRH0APl3EpwNq6DkAcQ3UKDVQQx/6wAVyFl+NieSVRquNMVA8KbF2Zr2zDs65NVgabED4golxVoIifu/BQXE0NFswMM6L6PEALfEEVazZGRr+72ZdgVPU3sCFuBp9O89FzMOTRyCfytDlwjOxj8/USpbi0YC6J1tB70FnytRGvSD9uF4yvSc8eXet2gHvwlPGVg9NKivxeZHPL3s7x9n4Dta7yfVibfmhXr/vfxmCkWLcU5u62xTMFPOM/m/6uKMo
+   eJyTYGBgkEDCqgwMB2zQxLDhA1CMTY5YM/BhSswAuYsHim3QxEk1hxI/IJsTQiWcMMgw0E0HqIGpEc6UxFso0DvI4YxuzgEG/GkehIOBuAUtfND1HMBhFrL9MDOSkTAhc2ByQP0JyPaD9KYBpcOhmJAfJLCYA9NfAGRLQzGp5kQCMbJ+GAYAEXVftQ==
   </data>
  </layer>
- <layer id="3" name="water" width="18" height="16">
+ <layer id="3" name="water" width="18" height="16" visible="0">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjALKgRcQC0HZnkTqAQAiUACm
+   eJzzYKAe8KCiWbQ2H5dZtPbDKCAduDMwHKCHHloBZLcMJneRC4Qp1O+DxAYAWSkF5A==
   </data>
  </layer>
  <objectgroup id="6" name="trigger">
-  <object id="16" name="trap_trigger" x="97" y="114" width="14" height="12">
+  <object id="36" name="trap_trigger" x="6.28904" y="215.825" width="14" height="12">
    <properties>
     <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup id="5" name="objects">
-  <object id="5" gid="3" x="197" y="118" width="80" height="112"/>
-  <object id="9" gid="5" x="32" y="32" width="16" height="16"/>
-  <object id="10" name="Player" gid="2" x="25" y="214" width="32" height="32">
+  <object id="10" name="Player" gid="2" x="239.005" y="100.702" width="32" height="32">
    <properties>
     <property name="camFollow" type="bool" value="true"/>
     <property name="controller" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="11" gid="6" x="-7.72414" y="116.811" width="41" height="63"/>
-  <object id="12" gid="6" x="139.586" y="203.414" width="41" height="63"/>
-  <object id="13" gid="6" x="72" y="93" width="41" height="63"/>
-  <object id="14" gid="6" x="176" y="123" width="41" height="63"/>
-  <object id="15" gid="7" x="96" y="128" width="16" height="16"/>
-  <object id="17" gid="8" x="149" y="132" width="32" height="32"/>
-  <object id="26" name="Npc" gid="2" x="186.217" y="72.9348" width="32" height="32" opacity="0.4">
+  <object id="15" gid="7" x="6.02219" y="230.08" width="16" height="16"/>
+  <object id="17" gid="8" x="163.036" y="62.6602" width="32" height="32"/>
+  <object id="26" name="Npc" gid="2" x="261.141" y="218.968" width="32" height="32" opacity="0.4">
    <properties>
     <property name="dialogue1" value="..."/>
     <property name="dialogue2" value="..."/>
-    <property name="dialogue3" value="..."/>
+    <property name="dialogue3" value="You gotta find the key."/>
     <property name="name" value="TheForgottenOne"/>
     <property name="talkRange" type="float" value="1.2"/>
     <property name="type" value="Npc"/>
    </properties>
   </object>
-  <object id="28" name="Npc" gid="9" x="-4.41379" y="141.052" width="31.6724" height="36.4138">
+  <object id="28" name="Npc" gid="9" x="-5.38656" y="120.249" width="31.6724" height="36.4138">
    <properties>
     <property name="dialogue1" value="YOU SHALL NOT"/>
     <property name="dialogue2" value="PASS!!!"/>
@@ -57,5 +51,16 @@
     <property name="type" value="Npc"/>
    </properties>
   </object>
+  <object id="29" gid="3" x="214.025" y="81.0447" width="80" height="112"/>
+  <object id="30" gid="5" x="17.0447" y="24.3557" width="16" height="16"/>
+  <object id="31" gid="8" x="107.179" y="63.2231" width="32" height="32"/>
+  <object id="39" gid="6" x="129.246" y="47.8446" width="41" height="63"/>
+  <object id="40" gid="6" x="72.001" y="44.7779" width="41" height="63"/>
+  <object id="41" gid="6" x="38.2673" y="190.957" width="41" height="63"/>
+  <object id="42" gid="6" x="183.936" y="202.202" width="41" height="63"/>
+  <object id="43" gid="6" x="107.268" y="248.202" width="41" height="63"/>
+  <object id="44" gid="6" x="-9.26655" y="83.6228" width="41" height="63"/>
+  <object id="45" gid="6" x="123.113" y="183.291" width="41" height="63"/>
+  <object id="46" name="Key" gid="10" x="3.84614" y="250" width="20" height="20"/>
  </objectgroup>
 </map>
