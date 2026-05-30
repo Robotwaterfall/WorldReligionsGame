@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="18" height="16" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="12">
+ <tileset firstgid="1" source="tileset.tsx"/>
+ <tileset firstgid="193" source="objects.tsx"/>
+ <layer id="1" name="ground" width="18" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzjY2Bg4BvFA4K9GRgavIA0KRibOUDxhDAgTQqmlzm5EP4BQpiQOUD2A3LDeZCbs2AkmwMA9J40pQ==
+  </data>
+ </layer>
+ <layer id="2" name="water" width="18" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIKBAQAEgAAB
+  </data>
+ </layer>
+ <objectgroup id="3" name="trigger">
+  <object id="8" name="main_map_entrance" x="283.363" y="87.9576" width="13.8462" height="45.1282">
+   <properties>
+    <property name="sensor" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="5" name="spawnpoint">
+  <object id="10" name="cfn_map_spawnpoint" x="248.279" y="102.65" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="4" name="objects">
+  <object id="1" gid="198" x="63.0259" y="100.074" width="41" height="63"/>
+  <object id="2" gid="198" x="127.806" y="159.388" width="41" height="63"/>
+  <object id="3" gid="198" x="55.4566" y="250.38" width="41" height="63"/>
+  <object id="4" gid="198" x="243.654" y="93.3458" width="41" height="63"/>
+  <object id="5" gid="198" x="159.32" y="95.425" width="41" height="63"/>
+  <object id="6" gid="198" x="198.55" y="159.806" width="41" height="63"/>
+  <object id="11" gid="198" x="51.4461" y="166.866" width="41" height="63"/>
+ </objectgroup>
+</map>

@@ -31,6 +31,9 @@ public class TiledService {
     private BiConsumer<String, MapObject> loadTriggerConsumer;
     private Consumer<TiledMapTileMapObject> loadObjectConsumer;
     private LoadTileConsumer loadTileConsumer;
+    private Consumer<TiledMap> preMapChangeConsumer;
+
+    private boolean isTransition = false;
 
     public TiledService(AssetService assetService, World physicWorld) {
         this.assetService = assetService;
@@ -39,6 +42,7 @@ public class TiledService {
         this.loadTriggerConsumer = null;
         this.loadObjectConsumer = null;
         this.loadTileConsumer = null;
+        this.preMapChangeConsumer = null;
         this.currentMap = null;
     }
 
@@ -48,18 +52,30 @@ public class TiledService {
         return tiledMap;
     }
 
-    public void setMap(TiledMap tiledMap) {
-        if (this.currentMap != null) {
+    public void setMap(TiledMap tiledMap, boolean isTransition) {
+        this.isTransition = isTransition;
+
+         if (this.currentMap != null) {
             this.assetService.unload(this.currentMap.getProperties().get("mapAsset", MapAsset.class));
 
-            // quick and dirt environment body cleanup (=map boundary and static tile collision bodies)
+            // fire BEFORE loading new objects so consumers can clean up entities
+            if (this.preMapChangeConsumer != null) {
+                this.preMapChangeConsumer.accept(this.currentMap);
+            }
+
             Array<Body> bodies = new Array<>();
             physicWorld.getBodies(bodies);
             for (Body body : bodies) {
                 if ("environment".equals(body.getUserData())) {
                     physicWorld.destroyBody(body);
+                    }
                 }
-            }
+        }
+
+        this.currentMap = tiledMap;
+        loadMapObjects(tiledMap);         // spawns new entities
+        if (this.mapChangeConsumer != null) {
+            this.mapChangeConsumer.accept(tiledMap);
         }
 
         this.currentMap = tiledMap;
@@ -85,6 +101,10 @@ public class TiledService {
         this.loadTileConsumer = loadTileConsumer;
     }
 
+    public void setPreMapChangeConsumer(Consumer<TiledMap> preMapChangeConsumer) {
+        this.preMapChangeConsumer = preMapChangeConsumer;
+    }
+
     /**
      * Loads all map objects from different layers and creates map collision boundaries.
      */
@@ -101,6 +121,11 @@ public class TiledService {
 
         spawnMapBoundary(tiledMap);
     }
+
+    public boolean isTransition() {
+        return isTransition;
+    }
+
 
     /**
      * Creates physics boundaries around the map edges.

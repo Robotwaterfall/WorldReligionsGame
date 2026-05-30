@@ -4,22 +4,29 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.ashley.utils.ImmutableArray;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.Timer;
+
+import io.github.com.quillraven.asset.MapAsset;
 import io.github.com.quillraven.asset.SoundAsset;
 import io.github.com.quillraven.audio.AudioService;
 import io.github.com.quillraven.component.Animation2D;
 import io.github.com.quillraven.component.Life;
 import io.github.com.quillraven.component.Tiled;
 import io.github.com.quillraven.component.Trigger;
+import io.github.com.quillraven.handler.MapTransitionHandler;
 
 public class TriggerSystem extends IteratingSystem {
     private final AudioService audioService;
 
-    public TriggerSystem(AudioService audioService) {
+    private final MapTransitionHandler mapTransitionHandler;
+
+    public TriggerSystem(AudioService audioService, MapTransitionHandler mapTransitionHandler) {
         super(Family.all(Trigger.class).get());
         this.audioService = audioService;
+        this.mapTransitionHandler = mapTransitionHandler;
     }
 
     /**
@@ -49,10 +56,26 @@ public class TriggerSystem extends IteratingSystem {
      */
     private void fireTrigger(String triggerName, Entity triggeringEntity) {
         switch (triggerName) {
-            case "trap_trigger" -> trapTrigger(triggeringEntity);
+            case "trap_trigger"      -> trapTrigger(triggeringEntity);
+            case "cfn_map_entrance"  -> cfnMapEntrance(triggeringEntity);
+            case "main_map_entrance" -> mainMapEntrance(triggeringEntity);
             default -> throw new GdxRuntimeException("Unsupported trigger: " + triggerName);
         }
+    }  
+
+        /**
+         * Handles transition to the CFN map.
+         */
+    private void cfnMapEntrance(Entity triggeringEntity) {
+         mapTransitionHandler.transitionTo(MapAsset.CFN, "cfn_map_spawnpoint");
     }
+
+        /**
+         * Handles transition to the main map.
+         */
+    private void mainMapEntrance(Entity triggeringEntity) {
+       mapTransitionHandler.transitionTo(MapAsset.MAIN, "main_map_spawnpoint");
+     }
 
     /**
      * Handles trap trigger effects including animation and damage.

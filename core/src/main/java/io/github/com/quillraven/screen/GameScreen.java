@@ -1,6 +1,7 @@
 package io.github.com.quillraven.screen;
 
 import com.badlogic.ashley.core.Engine;
+import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
@@ -10,6 +11,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -17,6 +19,8 @@ import io.github.com.quillraven.GdxGame;
 import io.github.com.quillraven.asset.MapAsset;
 import io.github.com.quillraven.asset.SkinAsset;
 import io.github.com.quillraven.audio.AudioService;
+import io.github.com.quillraven.component.Player;
+import io.github.com.quillraven.handler.MapTransitionHandler;
 import io.github.com.quillraven.input.GameControllerState;
 import io.github.com.quillraven.input.KeyboardController;
 import io.github.com.quillraven.system.AnimationSystem;
@@ -27,6 +31,7 @@ import io.github.com.quillraven.system.DamagedSystem;
 import io.github.com.quillraven.system.FacingSystem;
 import io.github.com.quillraven.system.FsmSystem;
 import io.github.com.quillraven.system.LifeSystem;
+import io.github.com.quillraven.system.MapTransitionSystem;
 import io.github.com.quillraven.system.NpcInteractionSystem;
 import io.github.com.quillraven.system.PhysicDebugRenderSystem;
 import io.github.com.quillraven.system.PhysicMoveSystem;
@@ -54,6 +59,7 @@ public class GameScreen extends ScreenAdapter {
     private final KeyboardController keyboardController;
     private final AudioService audioService;
     private final NpcDialogueUI npcDialogueUI;
+    private final MapTransitionHandler MapTransitionHandler;
 
     public GameScreen(GdxGame game) {
         this.game = game;
@@ -69,6 +75,7 @@ public class GameScreen extends ScreenAdapter {
         this.tiledAshleyConfigurator = new TiledAshleyConfigurator(this.engine, this.physicWorld, this.game.getAssetService());
         this.keyboardController = new KeyboardController(GameControllerState.class, engine, null);
         this.npcDialogueUI = new NpcDialogueUI(stage, skin);
+        this.MapTransitionHandler = new MapTransitionHandler(this.tiledService, this.engine);
 
         // add ECS systems
         this.engine.addSystem(new PhysicMoveSystem());
@@ -81,7 +88,7 @@ public class GameScreen extends ScreenAdapter {
         // This is done by checking if an entity has a Damaged component,
         // and this component is removed in the DamagedSystem.
         this.engine.addSystem(new DamagedSystem(viewModel));
-        this.engine.addSystem(new TriggerSystem(audioService));
+        this.engine.addSystem(new TriggerSystem(audioService, MapTransitionHandler));
         this.engine.addSystem(new LifeSystem(this.viewModel));
         this.engine.addSystem(new AnimationSystem(game.getAssetService()));
         this.engine.addSystem(new CameraSystem(game.getCamera()));
@@ -89,6 +96,7 @@ public class GameScreen extends ScreenAdapter {
         this.engine.addSystem(new PhysicDebugRenderSystem(this.physicWorld, game.getCamera()));
         this.engine.addSystem(new ControllerSystem(game));
         this.engine.addSystem(new NpcInteractionSystem());
+        this.engine.addSystem(new MapTransitionSystem(MapTransitionHandler));
     }
 
     @Override
@@ -105,9 +113,22 @@ public class GameScreen extends ScreenAdapter {
         this.tiledService.setLoadTriggerConsumer(tiledAshleyConfigurator::onLoadTrigger);
         this.tiledService.setLoadObjectConsumer(tiledAshleyConfigurator::onLoadObject);
         this.tiledService.setLoadTileConsumer(tiledAshleyConfigurator::onLoadTile);
+        tiledService.setPreMapChangeConsumer(oldMap -> {
+        // Remove all map-spawned entities (everything except the player)
+        Array<Entity> toRemove = new Array<>();
+            for (Entity entity : engine.getEntities()) {
+                if (Player.MAPPER.get(entity) == null) {
+                    toRemove.add(entity);
+                }
+            }
+            for (Entity entity : toRemove) {
+                engine.removeEntity(entity);
+            }
+        });
+
 
         TiledMap startMap = this.tiledService.loadMap(MapAsset.MAIN);
-        this.tiledService.setMap(startMap);
+        this.tiledService.setMap(startMap, false);
     }
 
     @Override
