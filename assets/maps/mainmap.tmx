@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="18" height="16" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="50">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="18" height="16" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="51">
  <properties>
   <property name="music" value="TOWN"/>
  </properties>
  <tileset firstgid="1" source="objects.tsx"/>
- <tileset firstgid="11" source="tileset.tsx"/>
+ <tileset firstgid="14" source="tileset.tsx"/>
  <layer id="1" name="ground" width="18" height="16">
   <data encoding="base64" compression="zlib">
-   eJyTYGBgkEDCqgwMB2zQxLDhA1CMTY5YM/BhSswAuYsHim3QxEk1hxI/IJsTQiWcMMgw0E0HqIGpEc6UxFso0DvI4YxuzgEG/GkehIOBuAUtfND1HMBhFrL9MDOSkTAhc2ByQP0JyPaD9KYBpcOhmJAfJLCYA9NfAGRLQzGp5kQCMbJ+GAYAEXVftQ==
+   eJyTZmBgkEbCGgwMB+zRxLDhw1CMTY5YM/BhSswAuYsfiu3RxEk1hxI/IJsTTiWcPMgw0E0HqIGpEc6UxFsEA0MCcjijm3OYAX+aB+EwIG5HCx90PYdxmIVsP8yMNCRMyByYHFB/ArL9IL2ZwPCNgmJCfpDGYg5MfzGQLQfFpJoTA8TI+mEYALCeYxU=
   </data>
  </layer>
  <layer id="3" name="water" width="18" height="16" visible="0">
   <data encoding="base64" compression="zlib">
-   eJzzYKAe8KCiWbQ2H5dZtPbDKCAduDMwHKCHHloBZLcMJneRC4Qp1O+DxAYAWSkF5A==
+   eJzzZqAe8KaiWbQ2H5dZtPbDKCAdeDEwHKCHHloBZLcMJneRC8Qo1O+PxAYApcEGBQ==
   </data>
  </layer>
  <objectgroup id="6" name="trigger">
@@ -71,5 +71,15 @@
   <object id="44" gid="6" x="-9.26655" y="83.6228" width="41" height="63"/>
   <object id="45" gid="6" x="123.113" y="183.291" width="41" height="63"/>
   <object id="46" name="Key" gid="10" x="3.84614" y="250" width="20" height="20"/>
+  <object id="50" gid="13" x="55.8718" y="74.5641" width="22.6154" height="33.2308">
+   <properties>
+    <property name="dialogue1" value="This game is about 3 different world religions."/>
+    <property name="dialogue2" value="Each world represents a different religion."/>
+    <property name="dialogue3" value="Enjoy and have fun!"/>
+    <property name="name" value="Mr. Pigeau"/>
+    <property name="talkRange" type="float" value="1.2"/>
+    <property name="type" value="Npc"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
