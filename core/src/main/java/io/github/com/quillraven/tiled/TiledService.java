@@ -73,12 +73,6 @@ public class TiledService {
         }
 
         this.currentMap = tiledMap;
-        loadMapObjects(tiledMap);         // spawns new entities
-        if (this.mapChangeConsumer != null) {
-            this.mapChangeConsumer.accept(tiledMap);
-        }
-
-        this.currentMap = tiledMap;
         loadMapObjects(tiledMap);
         if (this.mapChangeConsumer != null) {
             this.mapChangeConsumer.accept(tiledMap);

@@ -3,6 +3,7 @@ package io.github.com.quillraven.screen;
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.EntitySystem;
+import com.badlogic.ashley.core.Family;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Color;
@@ -111,19 +112,39 @@ public class GameScreen extends ScreenAdapter {
         Consumer<TiledMap> audioConsumer = this.audioService::setMap;
         this.tiledService.setMapChangeConsumer(renderConsumer.andThen(cameraConsumer).andThen(audioConsumer));
         this.tiledService.setLoadTriggerConsumer(tiledAshleyConfigurator::onLoadTrigger);
-        this.tiledService.setLoadObjectConsumer(tiledAshleyConfigurator::onLoadObject);
+
+        this.tiledService.setLoadObjectConsumer(tileMapObject -> {
+            boolean playerExists = engine.getEntitiesFor(
+                Family.all(Player.class).get()
+            ).size() > 0;
+
+            if (playerExists && tileMapObject.getTile().getId() == 2) {
+                return;
+            }
+
+            tiledAshleyConfigurator.onLoadObject(tileMapObject);
+        });
+
+
+
+
+
         this.tiledService.setLoadTileConsumer(tiledAshleyConfigurator::onLoadTile);
         tiledService.setPreMapChangeConsumer(oldMap -> {
         // Remove all map-spawned entities (everything except the player)
+
         Array<Entity> toRemove = new Array<>();
+
             for (Entity entity : engine.getEntities()) {
                 if (Player.MAPPER.get(entity) == null) {
                     toRemove.add(entity);
                 }
             }
+
             for (Entity entity : toRemove) {
                 engine.removeEntity(entity);
             }
+    
         });
 
 

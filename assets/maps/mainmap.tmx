@@ -35,6 +35,7 @@
    <properties>
     <property name="camFollow" type="bool" value="true"/>
     <property name="controller" type="bool" value="true"/>
+    <property name="isPlayer" type="bool" value="true"/>
    </properties>
   </object>
   <object id="15" gid="7" x="5.50937" y="231.106" width="16" height="16"/>
