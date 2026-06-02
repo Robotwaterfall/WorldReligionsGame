@@ -1,7 +1,5 @@
 package io.github.com.quillraven.tiled;
 
-import java.lang.reflect.Array;
-
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.Color;

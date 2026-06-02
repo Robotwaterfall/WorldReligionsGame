@@ -14,7 +14,6 @@ import io.github.com.quillraven.component.Move;
 import io.github.com.quillraven.component.Npc;
 import io.github.com.quillraven.component.Player;
 import io.github.com.quillraven.component.Transform;
-import io.github.com.quillraven.input.Command;
 
 public class NpcInteractionSystem extends EntitySystem {
     private ImmutableArray<Entity> playerEntities;
