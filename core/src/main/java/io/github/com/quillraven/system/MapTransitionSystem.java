@@ -34,6 +34,8 @@ public class MapTransitionSystem extends IteratingSystem {
         switch (trigger.getName()) {
             case "cfn_map_entrance" -> transitionHandler.transitionTo(MapAsset.CFN, "cfn_map_spawnpoint");
             case "main_map_entrance" -> transitionHandler.transitionTo(MapAsset.MAIN, "main_map_spawnpoint");
+            case "main_map_house_exit" -> transitionHandler.transitionTo(MapAsset.MAIN, "main_map_house_spawnpoint");
+            case "main_house_map_entrance" -> transitionHandler.transitionTo(MapAsset.MAIN_HOUSE, "main_house_spawnpoint");
         }
 
         trigger.setTriggeringEntity(null);

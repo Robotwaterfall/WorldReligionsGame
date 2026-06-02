@@ -7,7 +7,8 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 
 public enum MapAsset implements Asset<TiledMap> {
     MAIN("mainmap.tmx"),
-    CFN("cfnmap.tmx");
+    CFN("cfnmap.tmx"),
+    MAIN_HOUSE("main_map_house.tmx");
 
     private final AssetDescriptor<TiledMap> descriptor;
 

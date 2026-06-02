@@ -59,6 +59,8 @@ public class TriggerSystem extends IteratingSystem {
             case "trap_trigger"      -> trapTrigger(triggeringEntity);
             case "cfn_map_entrance"  -> cfnMapEntrance(triggeringEntity);
             case "main_map_entrance" -> mainMapEntrance(triggeringEntity);
+            case "main_house_map_entrance" -> mainHouseMapEntrance(triggeringEntity);
+            case "main_map_house_exit" -> mainMapHouseExit(triggeringEntity);
             default -> throw new GdxRuntimeException("Unsupported trigger: " + triggerName);
         }
     }  
@@ -68,6 +70,14 @@ public class TriggerSystem extends IteratingSystem {
          */
     private void cfnMapEntrance(Entity triggeringEntity) {
          mapTransitionHandler.transitionTo(MapAsset.CFN, "cfn_map_spawnpoint");
+    }
+
+    private void mainHouseMapEntrance(Entity triggeringEntity) {
+        mapTransitionHandler.transitionTo(MapAsset.MAIN_HOUSE, "main_house_spawnpoint");
+    }
+
+    private void mainMapHouseExit(Entity triggeringEntity) {
+        mapTransitionHandler.transitionTo(MapAsset.MAIN, "main_map_house_spawnpoint");
     }
 
         /**

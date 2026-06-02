@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="18" height="16" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="12">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="18" height="16" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="44">
  <tileset firstgid="1" source="tileset.tsx"/>
  <tileset firstgid="193" source="objects.tsx"/>
  <layer id="1" name="ground" width="18" height="16">
   <data encoding="base64" compression="zlib">
-   eJzjY2Bg4BvFA4K9GRgavIA0KRibOUDxhDAgTQqmlzm5EP4BQpiQOUD2A3LDeZCbs2AkmwMA9J40pQ==
+   eJwTZGBgEETDQkDMRyJGN4Ma5mgAsSwQy1FoDjnuoIU5pgwMD4BmLID5x5uBocELSJOCQeawAs1ANhsonhAGpEnB9DInF8I/QAhji2dkc4DsB+SG/UCaAwwbBjb85iwgxhxs6W84mAMABAU41g==
   </data>
  </layer>
  <layer id="2" name="water" width="18" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIKBAQAEgAAB
+   eJzjZEAATiB2YCAPOAGxI5l60QEnlcwBAQcK9VPTLdQA1ArjUTC0gMNAOwANUCtfAACyBwGy
   </data>
  </layer>
  <objectgroup id="3" name="trigger">
@@ -23,12 +23,45 @@
   <object id="10" name="cfn_map_spawnpoint" x="248.279" y="102.65" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="4" name="objects">
-  <object id="1" gid="198" x="63.0259" y="100.074" width="41" height="63"/>
-  <object id="2" gid="198" x="127.806" y="159.388" width="41" height="63"/>
-  <object id="3" gid="198" x="55.4566" y="250.38" width="41" height="63"/>
-  <object id="4" gid="198" x="243.654" y="93.3458" width="41" height="63"/>
-  <object id="5" gid="198" x="159.32" y="95.425" width="41" height="63"/>
-  <object id="6" gid="198" x="198.55" y="159.806" width="41" height="63"/>
-  <object id="11" gid="198" x="51.4461" y="166.866" width="41" height="63"/>
+  <object id="13" gid="198" x="89.7938" y="40.2474" width="41" height="63"/>
+  <object id="14" gid="198" x="126.392" y="40.7629" width="41" height="63"/>
+  <object id="15" gid="198" x="109.381" y="26.3299" width="41" height="63"/>
+  <object id="16" gid="198" x="150.619" y="50.5567" width="41" height="63"/>
+  <object id="17" gid="198" x="154.227" y="27.8763" width="41" height="63"/>
+  <object id="18" gid="198" x="181.546" y="27.3608" width="41" height="63"/>
+  <object id="19" gid="198" x="180" y="50.5567" width="41" height="63"/>
+  <object id="20" gid="198" x="220.206" y="36.6392" width="41" height="63"/>
+  <object id="21" gid="198" x="211.959" y="57.7732" width="41" height="63"/>
+  <object id="22" gid="198" x="259.897" y="42.3093" width="41" height="63"/>
+  <object id="23" gid="198" x="242.371" y="26.3299" width="41" height="63"/>
+  <object id="24" gid="198" x="240.309" y="62.9278" width="41" height="63"/>
+  <object id="25" gid="198" x="268.144" y="79.4227" width="41" height="63"/>
+  <object id="26" gid="198" x="274.33" y="52.6186" width="41" height="63"/>
+  <object id="27" gid="198" x="179.485" y="280.454" width="41" height="63"/>
+  <object id="28" gid="198" x="202.165" y="277.361" width="41" height="63"/>
+  <object id="29" gid="198" x="209.897" y="255.711" width="41" height="63"/>
+  <object id="30" gid="198" x="232.062" y="282" width="41" height="63"/>
+  <object id="31" gid="198" x="246.495" y="260.351" width="41" height="63"/>
+  <object id="32" gid="198" x="257.835" y="279.938" width="41" height="63"/>
+  <object id="33" gid="198" x="258.351" y="223.237" width="41" height="63"/>
+  <object id="34" gid="198" x="218.66" y="229.938" width="41" height="63"/>
+  <object id="35" gid="198" x="238.763" y="229.938" width="41" height="63"/>
+  <object id="36" gid="198" x="268.66" y="185.093" width="41" height="63"/>
+  <object id="37" gid="198" x="263.505" y="211.897" width="41" height="63"/>
+  <object id="38" gid="198" x="263.505" y="245.918" width="41" height="63"/>
+  <object id="39" gid="198" x="246.495" y="71.1753" width="41" height="63"/>
+  <object id="40" gid="198" x="245.464" y="195.402" width="41" height="63"/>
+  <object id="41" gid="198" x="156.289" y="272.722" width="41" height="63"/>
+  <object id="42" gid="198" x="181.546" y="241.278" width="41" height="63"/>
+  <object id="43" gid="205" x="231.476" y="62.2506" width="22.6154" height="33.2308">
+   <properties>
+    <property name="dialogue1" value="Welcome to the Candian First Nations World."/>
+    <property name="dialogue2" value="Here, you will learn how land, story, and community are connected through respectful exploration and activities."/>
+    <property name="dialogue3" value="Complete the challenges here to understand these teachings and unlock the next world."/>
+    <property name="name" value="Mr. Pigeau"/>
+    <property name="talkRange" type="float" value="1.2"/>
+    <property name="type" value="Npc"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="15" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="9" nextobjectid="52">
+ <tileset firstgid="1" source="tileset.tsx"/>
+ <tileset firstgid="193" source="tileset_house.tsx"/>
+ <tileset firstgid="337" source="house_objects.tsx"/>
+ <layer id="1" name="ground" width="15" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAfXCARX0TS+wKI75CAX1FJ72cK9D4b1Tsi9X4FSTJiYkZGhN7/RKjBBQB9C43D
+  </data>
+ </layer>
+ <layer id="5" name="carpet" width="15" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBg4wM7IsIBcvRwU6B0F9AOCjAwMQkAszEi6XlmgHjkglofqZQXSbGSYM9gBAHOiAfU=
+  </data>
+ </layer>
+ <layer id="7" name="inner walls" width="15" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFIxE8QMMk6Eu4z8Cw4DISJkXvAxLU00ovzP1AWoEYveTYSQoAACCQGAo=
+  </data>
+ </layer>
+ <objectgroup id="2" name="trigger">
+  <object id="2" name="main_map_house_exit" x="-10.2083" y="27.5556" width="14.2036" height="40.3915">
+   <properties>
+    <property name="sensor" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="3" name="spawnpoint">
+  <object id="1" name="main_house_spawnpoint" x="25.723" y="45.751"/>
+ </objectgroup>
+ <objectgroup id="6" name="objects">
+  <object id="38" type="Prop" gid="337" x="101.388" y="178.55" width="23" height="32"/>
+  <object id="39" type="Prop" gid="339" x="40.2386" y="183.076" width="30" height="21"/>
+  <object id="40" type="Prop" gid="341" x="34.194" y="161.263" width="44" height="26"/>
+  <object id="41" type="Prop" gid="343" x="125.437" y="163.2" width="12" height="13"/>
+  <object id="51" gid="342" x="17.6115" y="73.4713" width="11" height="10"/>
+ </objectgroup>
+ <objectgroup id="8" name="plants">
+  <object id="43" type="Prop" gid="338" x="127.119" y="155.216" width="9" height="12"/>
+ </objectgroup>
+</map>
