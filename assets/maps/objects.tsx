@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.12.2" name="objects" tilewidth="80" tileheight="112" tilecount="9" columns="0">
+<tileset version="1.10" tiledversion="1.12.2" name="objects" tilewidth="80" tileheight="112" tilecount="10" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="1" type="Object">
   <properties>
@@ -108,5 +108,15 @@
    <property name="lifeReg" type="float" value="9999"/>
   </properties>
   <image source="objects/pigeau.png" width="38" height="64"/>
+ </tile>
+ <tile id="13">
+  <properties>
+   <property name="animation" value="IDLE"/>
+   <property name="animationSpeed" type="float" value="0.5"/>
+   <property name="bodyType" value="StaticBody"/>
+   <property name="life" type="int" value="99999"/>
+   <property name="lifeReg" type="float" value="9999"/>
+  </properties>
+  <image source="objects/elder.png" width="48" height="48"/>
  </tile>
 </tileset>
