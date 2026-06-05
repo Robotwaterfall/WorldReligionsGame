@@ -109,14 +109,12 @@
   </properties>
   <image source="objects/pigeau.png" width="38" height="64"/>
  </tile>
- <tile id="13">
+ <tile id="19">
   <properties>
-   <property name="animation" value="IDLE"/>
-   <property name="animationSpeed" type="float" value="0.5"/>
    <property name="bodyType" value="StaticBody"/>
    <property name="life" type="int" value="99999"/>
    <property name="lifeReg" type="float" value="9999"/>
   </properties>
-  <image source="objects/elder.png" width="48" height="48"/>
+  <image source="objects/elder_lady.png" width="14" height="19"/>
  </tile>
 </tileset>

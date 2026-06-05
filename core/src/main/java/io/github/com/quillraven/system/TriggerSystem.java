@@ -4,7 +4,6 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.ashley.utils.ImmutableArray;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.Timer;
@@ -61,6 +60,8 @@ public class TriggerSystem extends IteratingSystem {
             case "main_map_entrance" -> mainMapEntrance(triggeringEntity);
             case "main_house_map_entrance" -> mainHouseMapEntrance(triggeringEntity);
             case "main_map_house_exit" -> mainMapHouseExit(triggeringEntity);
+            case "cfn_map_house_entrance" -> cfnMapHouseEntrance(triggeringEntity);
+            case "cfn_map_house_exit" -> cfnMapHouseExit(triggeringEntity);
             default -> throw new GdxRuntimeException("Unsupported trigger: " + triggerName);
         }
     }  
@@ -78,6 +79,14 @@ public class TriggerSystem extends IteratingSystem {
 
     private void mainMapHouseExit(Entity triggeringEntity) {
         mapTransitionHandler.transitionTo(MapAsset.MAIN, "main_map_house_spawnpoint");
+    }
+
+    private void cfnMapHouseEntrance(Entity triggeringEntity) {
+        mapTransitionHandler.transitionTo(MapAsset.CFN_HOUSE, "cfnmap_house_spawnpoint");
+    }
+
+    private void cfnMapHouseExit(Entity triggeringEntity) {
+        mapTransitionHandler.transitionTo(MapAsset.CFN, "cfn_map_spawnpoint_house_exit");
     }
 
         /**
