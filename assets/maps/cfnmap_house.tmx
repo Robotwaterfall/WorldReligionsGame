@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="13" height="13" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="18">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="13" height="13" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="19">
  <tileset firstgid="1" source="tileset_house.tsx"/>
  <tileset firstgid="145" source="house_objects.tsx"/>
+ <tileset firstgid="152" source="objects.tsx"/>
  <layer id="2" name="ground" width="13" height="13">
   <data encoding="base64" compression="zlib">
    eJxjYBi8gB+IBYjEglA90kAsA8QaUBobhslpQfVgU4tLPzY96Go1cNhjjMdNuOyxB2IHHBjdPJgefECNAj3o/qG2Peh+dYSKAwBHIwxX
@@ -37,5 +38,15 @@
   <object id="13" gid="146" x="152.592" y="140.405" width="9" height="12"/>
   <object id="14" gid="146" x="126.225" y="87.3505" width="9" height="12"/>
   <object id="17" gid="150" x="99.5016" y="99.8553" width="11" height="10"/>
+  <object id="18" gid="172" x="138.016" y="96.4952" width="14" height="19">
+   <properties>
+    <property name="dialogue1" value="In this world, community matters. People work together, help one another, and show respect for the land and for each other."/>
+    <property name="dialogue2" value="Learning is not just about facts"/>
+    <property name="dialogue3" value="it is also about responsibility and care."/>
+    <property name="name" value="Sam"/>
+    <property name="talkRange" type="float" value="1.2"/>
+    <property name="type" value="Npc"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
