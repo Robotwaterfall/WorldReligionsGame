@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="18" height="18" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="11">
+ <tileset firstgid="1" source="tileset_city.tsx"/>
+ <tileset firstgid="818" source="objects.tsx"/>
+ <tileset firstgid="848" source="tileset_house.tsx"/>
+ <layer id="1" name="ground" width="18" height="18">
+  <data encoding="base64" compression="zlib">
+   eJyLY2ZgiMeCs4AYiFBwDg61CUBcikU9qbhy1JxRc0bNGVHmNAJxP4V4AsgwKgEAWDUg1A==
+  </data>
+ </layer>
+ <layer id="5" name="water" width="18" height="18">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRAAIABRAAAQ==
+  </data>
+ </layer>
+ <objectgroup id="2" name="trigger">
+  <properties>
+   <property name="sensor" type="bool" value="true"/>
+  </properties>
+  <object id="6" name="hinduism_map_temple_exit" x="113.018" y="-6.32751" width="61.0994" height="12.0702">
+   <properties>
+    <property name="sensor" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="3" name="spawnpoint">
+  <object id="7" name="hinduism_map_house_spawnpoint" x="145.614" y="28.655"/>
+ </objectgroup>
+ <objectgroup id="4" name="objects">
+  <object id="2" gid="847" x="50.6667" y="104.304" width="66.5029" height="62.9942"/>
+  <object id="3" gid="847" x="172.597" y="105.345" width="66.5029" height="62.9942"/>
+  <object id="4" gid="847" x="49.7895" y="201.836" width="66.5029" height="62.9942"/>
+  <object id="5" gid="847" x="175.52" y="203.006" width="66.5029" height="62.9942"/>
+  <object id="8" gid="837" x="52.6491" y="115.848" width="14" height="19">
+   <properties>
+    <property name="dialogue1" value="Many Hindus worship not only in temples, but also at home."/>
+    <property name="dialogue2" value="A family may pray, light a lamp, make offerings, "/>
+    <property name="dialogue3" value=" and remember that religious life is part of everyday living."/>
+    <property name="name" value="Mira"/>
+    <property name="talkRange" type="float" value="1.2"/>
+    <property name="type" value="Npc"/>
+   </properties>
+  </object>
+  <object id="9" gid="839" x="219.901" y="143.918" width="14" height="19">
+   <properties>
+    <property name="dialogue1" value="The goal of the soul’s journey is moksha, which means freedom from the cycle of rebirth."/>
+    <property name="dialogue2" value="By learning about dharma, karma, and worship,"/>
+    <property name="dialogue3" value="you are ready to continue to the next world."/>
+    <property name="name" value="Leela"/>
+    <property name="talkRange" type="float" value="1.2"/>
+    <property name="type" value="Npc"/>
+   </properties>
+  </object>
+  <object id="10" gid="838" x="134.52" y="212.924" width="14" height="19">
+   <properties>
+    <property name="dialogue1" value="Hindus believe that actions have consequences."/>
+    <property name="dialogue2" value="This is called karma, and it connects to samsara, the cycle of birth, death, and rebirth."/>
+    <property name="dialogue3" value="."/>
+    <property name="name" value="Arjun"/>
+    <property name="talkRange" type="float" value="1.2"/>
+    <property name="type" value="Npc"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

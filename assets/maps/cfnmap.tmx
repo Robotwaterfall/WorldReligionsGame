@@ -23,7 +23,7 @@
     <property name="sensor" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="56" name="hinduism_map_entrance" x="56.8889" y="95.5556" width="7.55556" height="37.3333">
+  <object id="56" name="hinduism_map_entrance" x="56.8889" y="95.5556" width="16.4444" height="37.3333">
    <properties>
     <property name="sensor" type="bool" value="true"/>
    </properties>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="18" height="18" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="23">
+ <tileset firstgid="1" source="tileset_city.tsx"/>
+ <tileset firstgid="818" source="tileset.tsx"/>
+ <tileset firstgid="1010" source="objects.tsx"/>
+ <layer id="1" name="ground" width="18" height="18">
+  <data encoding="base64" compression="zlib">
+   eJxjZmBgYCYRRzMwNJQB6YNIOJJITMgcYt0QTsAcoJgCPkysOYTcEY9mDiMDwwJs5sjhwAo4zMHlHlz4zACZo8DIkADEDOhYiZF0c6DqE3BgUs0BxQXZ6QfZHErSITZzyMkX6OaE43APJebgyS9EmwPkH8DnJmLNiYbSBQzg9NWAjkHpixRziE3/AD9zddw=
+  </data>
+ </layer>
+ <layer id="2" name="water" width="18" height="18">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRAAIABRAAAQ==
+  </data>
+ </layer>
+ <objectgroup id="4" name="trigger">
+  <object id="2" name="buddhism_map_entrance_judaism" x="228.816" y="18.7741" width="12" height="39.5556">
+   <properties>
+    <property name="sensor" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="6" name="christianity_map_entrance" x="168.652" y="76.6019" width="12" height="39.5556">
+   <properties>
+    <property name="sensor" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="5" name="spawnpoint">
+  <object id="4" name="judaism_map_spawnpoint" x="260.517" y="98.132"/>
+ </objectgroup>
+ <objectgroup id="6" name="objects">
+  <object id="1" gid="2147484684" x="226.825" y="71.7287" width="70.8889" height="72.6667"/>
+  <object id="5" gid="1032" x="174.471" y="120.585" width="20.2222" height="50.8889"/>
+  <object id="16" gid="1029" x="246.216" y="220.934" width="14" height="19">
+   <properties>
+    <property name="dialogue1" value="Shabbat is a special holy day that begins on Friday evening."/>
+    <property name="dialogue2" value=" Families gather, light candles, share a meal, and rest."/>
+    <property name="dialogue3" value="Many Jews say the home is the most important place of worship."/>
+    <property name="name" value="Sarah"/>
+    <property name="talkRange" type="float" value="1.2"/>
+    <property name="type" value="Npc"/>
+   </properties>
+  </object>
+  <object id="17" gid="1030" x="79.1577" y="112.289" width="14" height="19">
+   <properties>
+    <property name="dialogue1" value="The Torah is Jewish scripture and a guide for living."/>
+    <property name="dialogue2" value="Jewish people study, question, and learn from the Torah and other texts."/>
+    <property name="dialogue3" value=" Education and critical thinking are valued in Jewish tradition."/>
+    <property name="name" value="Michael"/>
+    <property name="talkRange" type="float" value="1.2"/>
+    <property name="type" value="Npc"/>
+   </properties>
+  </object>
+  <object id="20" gid="1012" x="-1.44813" y="130.767" width="80" height="112"/>
+  <object id="21" gid="1022" x="266.149" y="126.494" width="22.6154" height="33.2308">
+   <properties>
+    <property name="dialogue1" value="Welcome to the Judaism world."/>
+    <property name="dialogue2" value="Here, you will learn about belief in one God, the Torah, Shabbat, and the importance of community and study."/>
+    <property name="dialogue3" value="Talk to the people here to understand Jewish life."/>
+    <property name="name" value="Mr. Pigeau"/>
+    <property name="talkRange" type="float" value="1.2"/>
+    <property name="type" value="Npc"/>
+   </properties>
+  </object>
+  <object id="22" gid="1031" x="198.026" y="283.368" width="14" height="19">
+   <properties>
+    <property name="dialogue1" value="Everyone is getting ready for Shabbat."/>
+    <property name="dialogue2" value="It’s a time for rest, family, and being together."/>
+    <property name="dialogue3" value="The whole community feels different when Shabbat begins."/>
+    <property name="name" value="Leah"/>
+    <property name="talkRange" type="float" value="1.2"/>
+    <property name="type" value="Npc"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

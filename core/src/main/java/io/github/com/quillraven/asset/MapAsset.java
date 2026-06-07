@@ -7,10 +7,14 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 
 public enum MapAsset implements Asset<TiledMap> {
     MAIN("mainmap.tmx"),
-    CFN("cfnmap.tmx"),
     MAIN_HOUSE("main_map_house.tmx"),
+    CFN("cfnmap.tmx"),
     CFN_HOUSE("cfnmap_house.tmx"),
-    HINDU("hindu_map.tmx");
+    HINDU("hinduismmap.tmx"),
+    HINDU_HOUSE("hinduismmap_house.tmx"),
+    BUDDHISM("buddhismmap.tmx"),
+    JUDAISM("judaismmap.tmx"),
+    CHRISTIANITY("christianitymap.tmx");
 
     private final AssetDescriptor<TiledMap> descriptor;
 

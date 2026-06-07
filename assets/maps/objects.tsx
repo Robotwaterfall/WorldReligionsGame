@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.12.2" name="objects" tilewidth="80" tileheight="112" tilecount="15" columns="0">
+<tileset version="1.10" tiledversion="1.12.2" name="objects" tilewidth="80" tileheight="112" tilecount="17" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="1" type="Object">
   <properties>
@@ -177,9 +177,33 @@
   </objectgroup>
  </tile>
  <tile id="26">
+  <properties>
+   <property name="bodyType" value="StaticBody"/>
+   <property name="life" type="int" value="99999"/>
+   <property name="lifeReg" type="float" value="9999"/>
+  </properties>
   <image source="objects/plane.png" width="30" height="30"/>
   <objectgroup draworder="index" id="2">
-   <object id="1" x="6.14317" y="3" width="17.8167" height="17.353"/>
+   <object id="1" x="2.76817" y="3" width="20.6917" height="17.353"/>
+   <object id="2" x="8" y="20.375">
+    <polygon points="0,0 2.125,1 4.125,1.875 4.875,3.125 3.375,4.625 4.375,4.875 10.5,4.75 9.375,3 10.375,1.375 13.875,0.375 14.25,-1.25"/>
+   </object>
   </objectgroup>
+ </tile>
+ <tile id="28">
+  <properties>
+   <property name="bodyType" value="StaticBody"/>
+   <property name="life" type="int" value="99999"/>
+   <property name="lifeReg" type="float" value="9999"/>
+  </properties>
+  <image source="objects/hinduism_temple.png" width="50" height="50"/>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="8" y="0" width="34" height="31.625"/>
+   <object id="2" x="8.125" y="31.75" width="11.5" height="16.5"/>
+   <object id="3" x="30.875" y="31.375" width="11" height="17.5"/>
+  </objectgroup>
+ </tile>
+ <tile id="29">
+  <image source="objects/pillar.png" width="32" height="32"/>
  </tile>
 </tileset>

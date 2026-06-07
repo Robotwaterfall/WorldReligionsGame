@@ -62,6 +62,15 @@ public class TriggerSystem extends IteratingSystem {
             case "main_map_house_exit" -> mainMapHouseExit(triggeringEntity);
             case "cfn_map_house_entrance" -> cfnMapHouseEntrance(triggeringEntity);
             case "cfn_map_house_exit" -> cfnMapHouseExit(triggeringEntity);
+            case "hinduism_map_entrance" -> hinduismMapEntrance(triggeringEntity);
+            case "cfn_map_entrance_hinduism" -> hinduismMapExit(triggeringEntity);
+            case "hinduism_map_temple_entrance" -> hinduismMapHouseEntrance(triggeringEntity);
+            case "hinduism_map_temple_exit" -> hinduismMapHouseExit(triggeringEntity);
+            case "buddhism_map_entrance_hinduism" -> buddhismMapEntrance(triggeringEntity);
+            case "hinduism_map_entrance_buddhism" -> hinduismMapEntrance(triggeringEntity);
+            case "judaism_map_entrance" -> judaismMapEntrance(triggeringEntity);
+            case "buddhism_map_entrance_judaism" -> judaismMapExit(triggeringEntity);
+            case "christianity_map_entrance" -> christianityMapEntrance(triggeringEntity);
             default -> throw new GdxRuntimeException("Unsupported trigger: " + triggerName);
         }
     }  
@@ -75,6 +84,38 @@ public class TriggerSystem extends IteratingSystem {
 
     private void mainHouseMapEntrance(Entity triggeringEntity) {
         mapTransitionHandler.transitionTo(MapAsset.MAIN_HOUSE, "main_house_spawnpoint");
+    }
+
+    private void hinduismMapEntrance(Entity triggeringEntity) {
+        mapTransitionHandler.transitionTo(MapAsset.HINDU, "hinduism_map_spawnpoint");
+    }
+
+    private void hinduismMapExit(Entity triggeringEntity) {
+        mapTransitionHandler.transitionTo(MapAsset.CFN, "cfn_map_spawnpoint_hinduism");
+    }
+
+    private void hinduismMapHouseEntrance(Entity triggeringEntity) {
+        mapTransitionHandler.transitionTo(MapAsset.HINDU_HOUSE, "hinduism_map_house_spawnpoint");
+    }   
+
+    private void hinduismMapHouseExit(Entity triggeringEntity) {
+        mapTransitionHandler.transitionTo(MapAsset.HINDU, "hinduism_map_spawnpoint_temple_exit");
+    }
+
+    private void buddhismMapEntrance(Entity triggeringEntity) {
+        mapTransitionHandler.transitionTo(MapAsset.BUDDHISM, "buddhism_map_spawnpoint");
+    }
+
+    private void judaismMapEntrance(Entity triggeringEntity) {
+        mapTransitionHandler.transitionTo(MapAsset.JUDAISM, "judaism_map_spawnpoint");
+    }
+
+    private void judaismMapExit(Entity triggeringEntity) {
+        mapTransitionHandler.transitionTo(MapAsset.CFN, "buddhism_map_spawnpoint");
+    }
+
+    private void christianityMapEntrance(Entity triggeringEntity) {
+        mapTransitionHandler.transitionTo(MapAsset.CHRISTIANITY, "christianity_map_spawnpoint");
     }
 
     private void mainMapHouseExit(Entity triggeringEntity) {
