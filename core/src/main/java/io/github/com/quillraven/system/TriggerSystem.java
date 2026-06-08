@@ -71,6 +71,7 @@ public class TriggerSystem extends IteratingSystem {
             case "judaism_map_entrance" -> judaismMapEntrance(triggeringEntity);
             case "buddhism_map_entrance_judaism" -> judaismMapExit(triggeringEntity);
             case "christianity_map_entrance" -> christianityMapEntrance(triggeringEntity);
+            case "christianity_map_exit_judaism" -> christianityMapExit(triggeringEntity);
             default -> throw new GdxRuntimeException("Unsupported trigger: " + triggerName);
         }
     }  
@@ -111,11 +112,15 @@ public class TriggerSystem extends IteratingSystem {
     }
 
     private void judaismMapExit(Entity triggeringEntity) {
-        mapTransitionHandler.transitionTo(MapAsset.CFN, "buddhism_map_spawnpoint");
+        mapTransitionHandler.transitionTo(MapAsset.BUDDHISM, "buddhism_map_spawnpoint");
     }
 
     private void christianityMapEntrance(Entity triggeringEntity) {
         mapTransitionHandler.transitionTo(MapAsset.CHRISTIANITY, "christianity_map_spawnpoint");
+    }
+
+    private void christianityMapExit(Entity triggeringEntity) {
+        mapTransitionHandler.transitionTo(MapAsset.JUDAISM, "judaism_map_spawnpoint");
     }
 
     private void mainMapHouseExit(Entity triggeringEntity) {
