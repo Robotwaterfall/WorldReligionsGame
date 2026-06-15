@@ -4,15 +4,15 @@
   <property name="music" value="TOWN"/>
  </properties>
  <tileset firstgid="1" source="objects.tsx"/>
- <tileset firstgid="14" source="tileset.tsx"/>
+ <tileset firstgid="31" source="tileset.tsx"/>
  <layer id="1" name="ground" width="18" height="16">
   <data encoding="base64" compression="zlib">
-   eJyTZmBgkEbCGgwMB+zRxLDhw1CMTY5YM/BhSswAuYsfiu3RxEk1hxI/IJsTTiWcPMgw0E0HqIGpEc6UxFsEA0MCcjijm3OYAX+aB+EwIG5HCx90PYdxmIVsP8yMNCRMyByYHFB/ArL9IL2ZwPCNgmJCfpDGYg5MfzGQLQfFpJoTA8TI+mEYALCeYxU=
+   eJzTYWBg0EHClgwMBwLQxLDhK1CMTY5YM/BhSswAuUsBigPQxEk1hxI/IJuTQSVcMsgw0E0HqIGpEc6UxFsmA0MCcjijm3OFAX+aB+F0IJ6BFj7oeq7gMAvZfpgZ5UiYkDkwOaD+BGT7QXqrgOGbDcWE/KCDxRyY/hYgWx+KSTUnF4iR9cMwAOFjdjU=
   </data>
  </layer>
- <layer id="3" name="water" width="18" height="16" visible="0">
+ <layer id="3" name="water" width="18" height="16">
   <data encoding="base64" compression="zlib">
-   eJzzZqAe8KaiWbQ2H5dZtPbDKCAdeDEwHKCHHloBZLcMJneRC8Qo1O+PxAYApcEGBQ==
+   eJyLYaAeiKGiWbQ2H5dZtPbDKCAdRDMwHKCHHloBZLcMJneRC9Qp1J+AxAYAV+cGwA==
   </data>
  </layer>
  <objectgroup id="6" name="trigger">
@@ -79,7 +79,7 @@
   <object id="46" name="Key" gid="10" x="3.84614" y="250" width="20" height="20"/>
   <object id="50" gid="13" x="55.8718" y="74.5641" width="22.6154" height="33.2308">
    <properties>
-    <property name="dialogue1" value="This game is about 3 different world religions."/>
+    <property name="dialogue1" value="This game is about 5 different world religions."/>
     <property name="dialogue2" value="Each world represents a different religion."/>
     <property name="dialogue3" value="Enjoy and have fun!"/>
     <property name="name" value="Mr. Pigeau"/>
